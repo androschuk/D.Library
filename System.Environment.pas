@@ -3,7 +3,8 @@ unit System.Environment;
 interface
 
 uses
-  System.SysUtils, WinApi.Windows, System.Generics.Ext, System.Generics.Defaults;
+  System.SysUtils, WinApi.Windows, System.Generics.Dictionary,
+  System.Generics.Defaults;
 
 type
   /// <summary>
@@ -35,7 +36,7 @@ implementation
 
 class function TEnvironment.GetEnvironmentVariable(Value: string): string;
 begin
-  Result := GetEnvironmentVariable(Value);
+  Result := System.SysUtils.GetEnvironmentVariable(Value);
 end;
 
 class function TEnvironment.GetEnvironmentVariables: IDictionary<string, string>;
